@@ -17,11 +17,13 @@ public class PrivateController {
     private final InternalUserRepository internalUserRepository;
     private JwtService jwtService;
     private final AuthenticationManager authenticationManager;
+    private final PasswordEncoder passwordEncoder;
 
     public PrivateController(InternalUserRepository internalUserRepository, JwtService jwtService, PasswordEncoder passwordEncoder, AuthenticationManager authenticationManager) {
         this.internalUserRepository = internalUserRepository;
         this.jwtService = jwtService;
         this.authenticationManager = authenticationManager;
+        this.passwordEncoder = passwordEncoder;
     }
 
     @PostMapping("/login")
@@ -31,5 +33,21 @@ public class PrivateController {
                         loginRequest.password())
         );
         return jwtService.generateToken(authentication);
+    }
+
+    @GetMapping("/getUsers")
+    public List<InternalUser> getUser(){
+        return internalUserRepository.findAll();
+    }
+
+    @PostMapping("/addUser")
+    public InternalUser CreateUser (@RequestBody InternalUser internalUser){
+        internalUser.setPassword(passwordEncoder.encode(internalUser.getPassword()));
+        return internalUserRepository.save(internalUser);
+    }
+
+    @DeleteMapping("/{id}")
+    public void deledtUser (@PathVariable Long id){
+        internalUserRepository.deleteById(id);
     }
 }
