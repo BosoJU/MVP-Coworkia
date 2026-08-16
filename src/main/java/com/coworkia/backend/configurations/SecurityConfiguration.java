@@ -1,6 +1,7 @@
 package com.coworkia.backend.configurations;
 
 import com.nimbusds.jose.jwk.source.ImmutableSecret;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -31,7 +32,8 @@ import java.util.List;
 @EnableMethodSecurity(jsr250Enabled = true, prePostEnabled = true, securedEnabled = true)
 @Configuration
 public class SecurityConfiguration {
-    private final String key = "xnWyAXNA1dESBEzROgKuQ0s0s6YNSJyB";
+    @Value("${coworkia.jwt.secret.key}")
+    private String key;
 
     @Bean
     JwtEncoder jwtEncoder(){
