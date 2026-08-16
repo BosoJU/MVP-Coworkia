@@ -64,6 +64,7 @@ public class SecurityConfiguration {
                         .requestMatchers(HttpMethod.DELETE, "/api/private/{id}").hasAuthority("SCOPE_ROLE_ADMIN")
                         .requestMatchers(HttpMethod.GET, "/api/private/reservations/historique").hasAuthority("SCOPE_ROLE_ADMIN")
                         .requestMatchers(HttpMethod.GET, "/api/private/reservations/futures").hasAuthority("SCOPE_ROLE_ADMIN")
+                        .requestMatchers(HttpMethod.GET,"/api/private/getUsers").hasAuthority("SCOPE_ROLE_ADMIN")
                         .requestMatchers("/api/private/**").authenticated()
 
                 )
