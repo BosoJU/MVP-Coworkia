@@ -11,6 +11,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UserService {
@@ -39,6 +40,12 @@ public class UserService {
     }
 
     public InternalUser CreateUser (InternalUser internalUser){
+        Optional<InternalUser> userExistant = internalUserRepository.findByEmail(internalUser.getEmail());
+
+        if(userExistant.isPresent()){
+            throw new IllegalArgumentException("Un utilisateur existe déjà avec cet email" + internalUser.getEmail());
+        }
+
         internalUser.setPassword(passwordEncoder.encode(internalUser.getPassword()));
         return internalUserRepository.save(internalUser);
     }
