@@ -78,6 +78,10 @@ public class ReservationService {
     public void annulerReservation (Long id, Authentication authentication) throws AccessDeniedException {
         Optional<Reservation> optionalReservation = reservationRepository.findById(id);
 
+        if (optionalReservation.isEmpty()){
+            throw  new NoSuchElementException("Réservation introuvable" + id);
+        }
+
         Reservation reservationASupprimer = optionalReservation.get();
 
         String email = authentication.getName();
