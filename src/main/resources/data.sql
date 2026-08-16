@@ -6,3 +6,12 @@ INSERT INTO internal_user (id, email, nom, prenom, password, role_id) VALUES (2,
 
 ALTER TABLE internal_role ALTER COLUMN id RESTART WITH 3;
 ALTER TABLE internal_user ALTER COLUMN id RESTART WITH 3;
+
+INSERT INTO zone (id, code, nom, capacite) VALUES (1, 'AT', 'Atlas', 20);
+INSERT INTO zone (id, code, nom, capacite) VALUES (2, 'BO', 'Boréal', 20);
+INSERT INTO zone (id, code, nom, capacite) VALUES (3, 'CA', 'Calypso', 15);
+INSERT INTO zone (id, code, nom, capacite) VALUES (4, 'DE', 'Delta', 15);
+INSERT INTO zone (id, code, nom, capacite) VALUES (5, 'EC', 'Echo', 10);
+INSERT INTO zone (id, code, nom, capacite) VALUES (6, 'FJ', 'Fjord', 10);
+INSERT INTO zone (id, code, nom, capacite) VALUES (7, 'GA', 'Gaïa', 5);
+INSERT INTO zone (id, code, nom, capacite) VALUES (8, 'HE', 'Hélios', 5);

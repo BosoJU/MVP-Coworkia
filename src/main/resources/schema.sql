@@ -12,3 +12,21 @@ CREATE TABLE internal_user (
     role_id BIGINT,
     FOREIGN KEY (role_id) REFERENCES internal_role(id)
 );
+
+CREATE TABLE zone (
+    id BIGINT PRIMARY KEY AUTO_INCREMENT,
+    code VARCHAR(255),
+    nom VARCHAR(255),
+    capacite INT
+);
+
+CREATE TABLE reservation (
+    id BIGINT PRIMARY KEY AUTO_INCREMENT,
+    zone_id BIGINT,
+    user_id BIGINT,
+    date_debut TIMESTAMP,
+    date_fin TIMESTAMP,
+    statut VARCHAR(255),
+    FOREIGN KEY (zone_id) REFERENCES zone(id),
+    FOREIGN KEY (user_id) REFERENCES internal_user(id)
+);
