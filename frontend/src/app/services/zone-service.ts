@@ -8,7 +8,7 @@ import { Zone } from '../models/zone';
   providedIn: 'root',
 })
 export class ZoneService {
-  private urlZones = 'http//localhost:8080/api/private/zones';
+  private urlZones = 'http://localhost:8080/api/private/zones';
 
   constructor(private http: HttpClient, private auth: Auth) {}
 
@@ -22,7 +22,7 @@ export class ZoneService {
     return this.http.get<Zone>(`${this.urlZones}/${id}`, { headers });
   } 
 
-  estdisponible(id: number, dateDebut:string, dateFin: string): Observable<boolean>{
+  estDisponible(id: number, dateDebut:string, dateFin: string): Observable<boolean>{
     const headers = { Authorization: 'Bearer ' + this.auth.getToken()};
     const params = new HttpParams()
     .set('dateDebut', dateDebut)

@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class Auth {
-  private urlLogin = 'htpp://localhost:8080/api/private/login';
+  private urlLogin = 'http://localhost:8080/api/private/login';
 
   constructor(private http: HttpClient){}
 
@@ -34,6 +34,6 @@ export class Auth {
     }
     const payload = token.split('.')[1];
     const decoded = JSON.parse(atob(payload));
-    return decoded.scope.incules('ROLE_ADMIN');
+    return decoded.scope.includes('ROLE_ADMIN');
   }
 }
