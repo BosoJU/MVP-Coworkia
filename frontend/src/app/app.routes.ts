@@ -7,7 +7,7 @@ import { authGuard } from './guards/auth-guard';
 
 export const routes: Routes = [
     {path:'zones', component: Zones, canActivate: [authGuard]},
-    {path:'login', component: Login, canActivate: [authGuard]},
+    {path:'login', component: Login},
     {path:'mes-reservations', component: MesReservations, canActivate: [authGuard]},
     {path:'historique', component: Historique, canActivate:[authGuard]},
 ];
