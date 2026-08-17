@@ -1,18 +1,38 @@
 <div class="p-4">
     <h1>Les zones</h1>
-
+    <div>
+        @if(messageReservation) {
+            <div [ngClass]="reservationReussie ? 'bg-green-100 text-green-800 border-green-400' : 'bg-red-100 text-red-800 border-red-400'"
+             class="mt-3 p-3 rounded font-semibold border">
+            {{ messageReservation }}
+            </div>
+        }
+    </div>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div class="border rounded p-4">
-            <h2>nom zone</h2>
-            <p>Capacité</p>
-            <button class="mt-3 border-t border-b py-3">
-                <input type="datetime-local" class="border p-2 w-full mb-2">
-                <input type="datetime-local" class="border p-2 w-full mb-2">
-            </button>
-            <p class="font-semibold my-2">Créneau dispo ?</p>
-
-            <button class="font-semibold bg-green-600 px-3 rounded">Réserver</button>
-        </div>
+        @for (zone of zones; track zone.id){
+            <div class="border rounded p-4 first-mt-3">
+                <h2>{{zone.nom}} ({{zone.code}})</h2>
+                <p>Capacité: {{zone.capacite}}</p>
+                <button (click)="ouvrirFormulaireDate(zone)" class="bg-blue-600 text-white px-3 py-1 rounded mt-2">Réserver</button>
+                    
+                @if(zoneSelectionnee === zone) {
+                    <label class="block mb-1">Début</label>
+                    <input type="datetime-local" [(ngModel)]="dateDebut" (change)="verifierDisponibilite()" class="border p-2 w-full mb-2">
+                    <label class="block mb-1">Fin</label>
+                    <input type="datetime-local" [(ngModel)]="dateFin" (change)="verifierDisponibilite()" class="border p-2 w-full mb-2">
+                
+                @if(creneauDisponible !== null){
+                    <p class="font-semibold my-2" [ngClass]="creneauDisponible ? 'text-green-600' : 'text-red-600'">
+                        {{creneauDisponible ? 'Créneau disponible' : 'Créneau complet'}}
+                    </p>
+                }
+            
+                <button (click)="reserver()" class="font-semibold bg-green-600 px-3 rounded">Confirmer</button>
+                }
+                    
+            </div>
+        }
+        
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -28,4 +48,3 @@
             <button class="btn-primary bg-green-600 ">Réserver</button>
         </div>
     </div>
-</div>
