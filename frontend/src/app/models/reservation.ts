@@ -14,5 +14,5 @@ export interface Reservation {
     };
     dateDebut: string;
     dateFin: string;
-    status: string;
+    statut: string;
 }
