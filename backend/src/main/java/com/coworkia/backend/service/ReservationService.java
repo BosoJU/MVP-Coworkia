@@ -53,6 +53,11 @@ public class ReservationService {
             throw new IllegalArgumentException("La date de début doit être avant la date de fin");
         }
 
+        //verification de date passée
+        if(reservation.getDateDebut().isBefore(LocalDateTime.now())){
+            throw new IllegalArgumentException("Vous ne pouvez pas réserver dans le passé");
+        }
+
         List<Reservation> reservationsExistantes = reservationRepository.findByZoneIdAndStatut(zone.getId(), ReservationStatus.CONFIRMEE);
 
         int nombreReservationsSurCreneau = 0;
