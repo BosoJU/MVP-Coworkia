@@ -4,13 +4,15 @@
         <span class="text-xs text-purple-500">Votre espace coworking</span>
     </div>
 
-    <button 
+    @if(estConnecte()){
+        <button 
         class="md:hidden"
         (click)="ouvrirMenu()"
     >
         ≡
     </button>
-
+    }
+    
     <nav [class.hidden]="!menuOuvert" class="flex flex-col md:flex-row md:items-center ml-1 gap-4">
         @if(estConnecte()){
             <a routerLink="/zones">Zones</a>
@@ -25,7 +27,4 @@
             <a routerLink="/login">Connexion</a>
         }
     </nav>
-
-
-    
 </header>
