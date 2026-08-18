@@ -1,10 +1,23 @@
 <div class="p-4">
     <h1>Mes réservations</h1>
 
-    <div class="border rounded p-4 gap-4">
-        <h2>Réservation nom</h2>
-        <p>Du dateDebut au dateFin</p>
-        <p>Statut</p>
-        <button class="btn-primary bg-red-600 text-white">Annuler</button>
-    </div>
+    @if(message){
+        <p class="mb-4 text-sm font-medium">{{message}}</p>
+    }
+
+    @for(reservation of reservations; track reservation.id){
+       <div class="border rounded flex justify-between items-center mb-4 p-4 gap-4">
+            <h2>{{reservation.zone.nom}} ({{reservation.zone.code}})</h2>
+            <p>Du {{reservation.dateDebut}} au {{reservation.dateFin}}</p>
+            <p>Statut: {{reservation.statut}}</p>
+            
+            @if(reservation.statut === 'CONFIRMEE'){
+                <button (click)="annuler(reservation.id)" class="btn-primary bg-red-600 text-white">Annuler</button>
+            }
+
+        </div> 
+
+    } @empty {
+        <p>Aucune réservation pour le moment</p>
+    }
 </div>

@@ -24,7 +24,7 @@ export class ReservationService {
     return this.http.post(this.urlReservation, body , {headers: headers});
   }
 
-  getMesReservation(id: number): Observable<any> {
+  getMesReservations(): Observable<any> {
     const headers = { Authorization: 'Bearer ' + this.authService.getToken()};
 
     return this.http.get<Reservation[]>(this.urlReservation + '/me', {headers:headers});
