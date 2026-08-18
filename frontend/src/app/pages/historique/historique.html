@@ -2,14 +2,20 @@
     <h1>Suivi d'occupation</h1>
 
     <h2>En cours et à venir</h2>
-    <div class="border rounded p-3 mb-2">
-        <p>Nom zone - user </p>
-        <p>Du dateDebut à dateFin</p>
-    </div>
-
+    @for(reservation of reservationsFutures; track reservation.id){
+        <div class="border rounded flex justify-between items-center mb-4 p-4 gap-4">
+            <h2>{{reservation.zone.nom}} ({{reservation.zone.code}})</h2>
+            <p>Du {{reservation.dateDebut}} au {{reservation.dateFin}}</p>
+            <p>Statut: {{reservation.statut}}</p>
+        </div> 
+    }
+    
     <h2>Passées</h2>
-    <div class="border rounded p-3 mb-2">
-        <p>Nom zone - user </p>
-        <p>Du dateDebut à dateFin</p>
-    </div>
+    @for(reservation of reservationsPassees; track reservation.id){
+        <div class="border rounded flex justify-between items-center mb-4 p-4 gap-4">
+            <h2>{{reservation.zone.nom}} ({{reservation.zone.code}})</h2>
+            <p>Du {{reservation.dateDebut}} au {{reservation.dateFin}}</p>
+            <p>Statut: {{reservation.statut}}</p>
+        </div> 
+    }
 </div>
