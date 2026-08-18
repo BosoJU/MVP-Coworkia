@@ -1,18 +1,31 @@
-<div class="bg-withe shadow p-4 flex items-center justify-between">
+<header class="bg-withe shadow p-4 flex items-center justify-between flex-wrap">
     <div class="grid">
         <span class="font-bold text-xl">Coworkia</span>
         <span class="text-xs text-purple-500">Votre espace coworking</span>
     </div>
-    
 
-    <nav class="md:flex md:items-center gap-4">
-        <a href="">Zones</a>
-        <a href="">Mes réservations</a>
-        <a href="">Historique</a>
+    <button 
+        class="md:hidden"
+        (click)="ouvrirMenu()"
+    >
+        ≡
+    </button>
+
+    <nav [class.hidden]="!menuOuvert" class="flex flex-col md:flex-row md:items-center ml-1 gap-4">
+        @if(estConnecte()){
+            <a routerLink="/zones">Zones</a>
+            <a routerLink="/mes-reservations">Mes réservations</a>
+        }
+        @if(estAdmin()){
+            <a routerLink="/historique">Historique</a>
+        }
+        @if(estConnecte()){
+           <a (click)="logout()">Déconnexion</a> 
+        } @else {
+            <a routerLink="/login">Connexion</a>
+        }
     </nav>
+
+
     
-    <nav class="btn-primary md:flex md:items-center gap-4 border-2 border-purple-200">
-        <a href="">Connexion</a>
-        <a href="">Déconnexion</a>
-    </nav>
-</div>
+</header>
