@@ -54,7 +54,7 @@ public class ReservationService {
         }
 
         //verification de date passée
-        if(reservation.getDateDebut().isBefore(LocalDateTime.now())){
+        if(reservation.getDateDebut().isBefore(LocalDateTime.now().minusMinutes(15))){
             throw new IllegalArgumentException("Vous ne pouvez pas réserver dans le passé");
         }
 
