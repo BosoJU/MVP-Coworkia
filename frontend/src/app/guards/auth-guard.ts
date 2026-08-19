@@ -24,3 +24,15 @@ export const loginGuard: CanActivateFn = () => {
     router.navigate(['/zones']);
     return false;
 }
+
+export const adminGuard: CanActivateFn = () => {
+    const auth = inject(Auth);
+    const router = inject(Router);
+
+    if(auth.estAdmin()){
+        return true
+    }
+
+    router.navigate(['/zones']);
+    return false;
+}
