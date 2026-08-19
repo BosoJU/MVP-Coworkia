@@ -6,14 +6,17 @@
 
     @if(estConnecte()){
         <button 
-        class="md:hidden"
+        class="md:hidden cursor-pointer"
         (click)="ouvrirMenu()"
     >
         ≡
     </button>
     }
     
-    <nav [class.hidden]="!menuOuvert" class="flex flex-col md:flex-row md:items-center ml-1 gap-4">
+    <nav 
+    [class.hidden]="!menuOuvert" 
+    [class.flex]="menuOuvert"
+    class="md:flex flex-col md:flex-row md:items-center ml-1 gap-4">
         @if(estConnecte()){
             <a routerLink="/zones">Zones</a>
             <a routerLink="/mes-reservations">Mes réservations</a>
@@ -22,7 +25,7 @@
             <a routerLink="/historique">Historique</a>
         }
         @if(estConnecte()){
-           <a (click)="logout()">Déconnexion</a> 
+           <button (click)="logout()" class="cursor-pointer">Déconnexion</button> 
         } @else {
             <a routerLink="/login">Connexion</a>
         }
