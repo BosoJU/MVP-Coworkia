@@ -15,3 +15,15 @@ INSERT INTO zone (id, code, nom, capacite) VALUES (5, 'EC', 'Echo', 10);
 INSERT INTO zone (id, code, nom, capacite) VALUES (6, 'FJ', 'Fjord', 10);
 INSERT INTO zone (id, code, nom, capacite) VALUES (7, 'GA', 'Gaïa', 5);
 INSERT INTO zone (id, code, nom, capacite) VALUES (8, 'HE', 'Hélios', 5);
+
+INSERT INTO reservation (id, zone_id, user_id, date_debut, date_fin, statut) VALUES (1, 8, 1, '2026-09-25 00:00:00', '2026-10-25 00:00:00', 'CONFIRMEE');
+INSERT INTO reservation (id, zone_id, user_id, date_debut, date_fin, statut) VALUES (2, 8, 1, '2026-09-25 00:00:00', '2026-10-25 00:00:00', 'CONFIRMEE');
+INSERT INTO reservation (id, zone_id, user_id, date_debut, date_fin, statut) VALUES (3, 8, 1, '2026-09-25 00:00:00', '2026-10-25 00:00:00', 'CONFIRMEE');
+INSERT INTO reservation (id, zone_id, user_id, date_debut, date_fin, statut) VALUES (4, 8, 1, '2026-09-25 00:00:00', '2026-10-25 00:00:00', 'CONFIRMEE');
+INSERT INTO reservation (id, zone_id, user_id, date_debut, date_fin, statut) VALUES (5, 8, 1, '2026-09-25 00:00:00', '2026-10-25 00:00:00', 'CONFIRMEE');
+
+INSERT INTO reservation (id, zone_id, user_id, date_debut, date_fin, statut) VALUES (6, 7, 1, '2026-05-25 00:00:00', '2026-06-25 00:00:00', 'CONFIRMEE');
+INSERT INTO reservation (id, zone_id, user_id, date_debut, date_fin, statut) VALUES (7, 7, 1, '2026-05-25 00:00:00', '2026-06-25 00:00:00', 'CONFIRMEE');
+INSERT INTO reservation (id, zone_id, user_id, date_debut, date_fin, statut) VALUES (8, 7, 1, '2026-05-25 00:00:00', '2026-06-25 00:00:00', 'CONFIRMEE');
+
+ALTER TABLE reservation ALTER COLUMN id RESTART WITH 9;
