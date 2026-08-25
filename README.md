@@ -49,7 +49,7 @@ On retrouve aussi des réservations passées afin d’afficher un historique com
 ## Accessibilité (RGAA/WCAG) 
 |Critère |MVP concerné ? |Mise en oeuvre|
 |---|---|---|
-|Navigation au clavier|Oui| Pas besoin de mise en œuvre, l’utilisation des éléments HTML natifs permettent le déplacement au clavier. Testé, déplacement au clavier (tab) fonctionnel sur toutes les pages. |
+|Navigation au clavier|Oui|Utilisation des éléments HTML natifs permettent le déplacement au clavier. Testé, déplacement au clavier (tab) fonctionnel sur toutes les pages. |
 |Contrastes suffisants|Oui|Couleur vérifiées et ajustées avec color.adobe.com|
 |Compatibilité technologies d’assistance|Oui|Association de for et de l’id, sur les input et label.  
 role= "alert" sur le message d’erreur, role= "status" sur le message de confirmation|
