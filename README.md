@@ -51,8 +51,9 @@ On retrouve aussi des réservations passées afin d’afficher un historique com
 |---|---|---|
 |Navigation au clavier|Oui| Pas besoin de mise en œuvre, l’utilisation des éléments HTML natifs permettent le déplacement au clavier. Testé, déplacement au clavier (tab) fonctionnel sur toutes les pages. |
 |Contrastes suffisants|Oui|Couleur vérifiées et ajustées avec color.adobe.com|
-|Compatibilité technologies d’assistance|Oui|id ajouté sur les champs email/mot de passe pour les associer à leur label, role= "alert" sur le message d’erreur, role= "status" sur le message de confirmation|
-|Redimensionnement des textes|Oui|Unités rem utilisées plutôt que des px fixes, il est possible de zommer via le navigateur sans casser l'interface|
+|Compatibilité technologies d’assistance|Oui|Association de for et de l’id, sur les input et label.  
+role= "alert" sur le message d’erreur, role= "status" sur le message de confirmation|
+|Redimensionnement des textes|Oui|Unités rem utilisées plutôt que des px fixes, il est possible de zoomer via le navigateur sans casser l'interface|
 |Affichage non contraint|Non applicable|Application desktop uniquement, pas de contraintes d’orientation mobiles|
 |Navigation cohérente|Oui|Navigation identique et au même emplacement sur toutes pages, nombre de liens faible|
 |Couleur seule ne suffit pas|Oui|La couleur seule ne transmet jamais l’information|
